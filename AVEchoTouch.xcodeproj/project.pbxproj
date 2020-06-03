@@ -41,8 +41,8 @@
 		3265619022899B1200ADCC03 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		32CD7FC7227F313E003FF140 /* PowerMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerMeter.swift; sourceTree = "<group>"; };
 		32DB914C2281AC6A00A146AB /* AudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
-		8E6524408E65249000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
-		9034CC709034C82000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+		870EBF9D0A0C02A17C9BE358 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		9C3FF370225993F532503533 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
 		C42D5FAA228E94EA001C7A20 /* Synth.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = Synth.aif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,8 +63,8 @@
 				3265619022899B1200ADCC03 /* README.md */,
 				3246359D21F142B00047E05A /* AVEchoTouch */,
 				3246359C21F142B00047E05A /* Products */,
-				8E652E408E652CA000000001 /* Configuration */,
-				9034C3D09034C39000000001 /* LICENSE */,
+				6C51BB84C0B7A6C23F773D95 /* Configuration */,
+				93F31A9D3128ABFEEE08CFF4 /* LICENSE */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,18 +106,18 @@
 			path = Audio;
 			sourceTree = "<group>";
 		};
-		8E652E408E652CA000000001 /* Configuration */ = {
+		6C51BB84C0B7A6C23F773D95 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				8E6524408E65249000000001 /* SampleCode.xcconfig */,
+				870EBF9D0A0C02A17C9BE358 /* SampleCode.xcconfig */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
 		};
-		9034C3D09034C39000000001 /* LICENSE */ = {
+		93F31A9D3128ABFEEE08CFF4 /* LICENSE */ = {
 			isa = PBXGroup;
 			children = (
-				9034CC709034C82000000001 /* LICENSE.txt */,
+				9C3FF370225993F532503533 /* LICENSE.txt */,
 			);
 			name = LICENSE;
 			path = LICENSE;
@@ -133,7 +133,6 @@
 				3246359721F142B00047E05A /* Sources */,
 				3246359821F142B00047E05A /* Frameworks */,
 				3246359921F142B00047E05A /* Resources */,
-				F8C27A80F8C2845000000001,
 			);
 			buildRules = (
 			);
@@ -151,7 +150,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					3246359A21F142B00047E05A = {
@@ -235,7 +234,7 @@
 /* Begin XCBuildConfiguration section */
 		324635AB21F142B10047E05A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E6524408E65249000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 870EBF9D0A0C02A17C9BE358 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -297,7 +296,7 @@
 		};
 		324635AC21F142B10047E05A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E6524408E65249000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 870EBF9D0A0C02A17C9BE358 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -353,13 +352,13 @@
 		};
 		324635AE21F142B10047E05A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E6524408E65249000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 870EBF9D0A0C02A17C9BE358 /* SampleCode.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = AVEchoTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -376,13 +375,13 @@
 		};
 		324635AF21F142B10047E05A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E6524408E65249000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 870EBF9D0A0C02A17C9BE358 /* SampleCode.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = AVEchoTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

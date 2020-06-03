@@ -23,7 +23,7 @@ class PowerMeter: AudioLevelProvider {
     private var meterTablePeak = MeterTable()
 
     var levels: AudioLevels {
-        guard !values.isEmpty else { return AudioLevels(level: 0.0, peakLevel: 0.0) }
+        if values.isEmpty { return AudioLevels(level: 0.0, peakLevel: 0.0) }
         return AudioLevels(level: meterTableAvarage.valueForPower(values[0].average),
                            peakLevel: meterTablePeak.valueForPower(values[0].peak))
     }

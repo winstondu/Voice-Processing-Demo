@@ -76,8 +76,10 @@ class AudioEngine {
             return nil
         }
         file.framePosition = 0
+        let bufferCapacity = AVAudioFrameCount(file.length)
+                + AVAudioFrameCount(file.processingFormat.sampleRate * 0.1) // add 100ms to capacity
         guard let buffer = AVAudioPCMBuffer(pcmFormat: file.processingFormat,
-                                            frameCapacity: AVAudioFrameCount(file.length)) else { return nil }
+                                            frameCapacity: bufferCapacity) else { return nil }
         do {
             try file.read(into: buffer)
         } catch {
@@ -93,7 +95,7 @@ class AudioEngine {
         do {
             try input.setVoiceProcessingEnabled(true)
         } catch {
-            print("could not enabled voice processing \(error)")
+            print("Could not enable voice processing \(error)")
             return
         }
 
@@ -118,7 +120,7 @@ class AudioEngine {
             }
         }
 
-        speechPlayer.installTap(onBus: 0, bufferSize: 128, format: nil) { buffer, _ in
+        speechPlayer.installTap(onBus: 0, bufferSize: 256, format: nil) { buffer, _ in
             if self.speechPlayer.isPlaying {
                 // update speech meter
                 self.speechPowerMeter.process(buffer: buffer)
@@ -127,7 +129,7 @@ class AudioEngine {
             }
         }
 
-        fxPlayer.installTap(onBus: 0, bufferSize: 128, format: nil) { buffer, _ in
+        fxPlayer.installTap(onBus: 0, bufferSize: 256, format: nil) { buffer, _ in
             if self.fxPlayer.isPlaying {
                 // update fx meter
                 self.fxPowerMeter.process(buffer: buffer)
@@ -179,6 +181,7 @@ class AudioEngine {
     func toggleRecording() {
         if isRecording {
             isRecording = false
+            recordedFile = nil // close file
         } else {
             recordedFilePlayer.stop()
 
