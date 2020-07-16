@@ -48,9 +48,8 @@ class ViewController: UIViewController {
     
     func setupAudioSession(sampleRate: Double) {
         let session = AVAudioSession.sharedInstance()
-
         do {
-            try session.setCategory(.playAndRecord, options: .defaultToSpeaker)
+            try session.setCategory(.multiRoute, mode: .default, options: [.defaultToSpeaker, /* not possible .allowBluetooth, */ .mixWithOthers])
         } catch {
             print("Could not set audio category: \(error.localizedDescription)")
         }
@@ -70,9 +69,8 @@ class ViewController: UIViewController {
             fxMeter.levelProvider = audioEngine.fxPowerMeter
             voiceIOMeter.levelProvider = audioEngine.voiceIOPowerMeter
 
-            setupAudioSession(sampleRate: audioEngine.voiceIOFormat.sampleRate)
-
             audioEngine.setup()
+            setupAudioSession(sampleRate: audioEngine.voiceIOFormat.sampleRate)
             audioEngine.start()
         } catch {
             fatalError("Could not set up audio engine: \(error)")
@@ -135,6 +133,7 @@ class ViewController: UIViewController {
     
     @objc
     func handleRouteChange(_ notification: Notification) {
+        // This DOES NOT get called when a bluetooth device connects while we are in Multi-Route audio category
         guard let userInfo = notification.userInfo,
             let reasonValue = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt,
             let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue),
